@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Revealing Prototype Demo</title>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var calc = new Calculator('output');
+			calc.add(3, 4);
+			calc.subtract(35,32);
+		};
+
+		var Calculator = function (eq) {
+			// state goes here
+			this.eqCtl = document.getElementById(eq);
+		};
+
+		Calculator.prototype = function () {
+			// private members
+			var add = function (x, y) {
+						this.eqCtl.innerHTML = x + y;
+				},
+				subtract = function (x, y) {
+						alert(x - y);
+				};
+
+			// public members
+			return {
+				add: add,
+				subtract: subtract
+			};
+
+		} ();
+
+	</script>
+
+</head>
+<body>
+
+	<div id="output"></div>
+	
+</body>
+</html>

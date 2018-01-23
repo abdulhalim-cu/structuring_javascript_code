@@ -1,0 +1,12 @@
+var Calculator = function (eq) {
+	// variable defined here
+};
+
+Calculator.prototype = function () {
+	// functions defined here
+
+	return {
+		// public member defined here as
+		// with revealing module pattern
+	};
+} ();
