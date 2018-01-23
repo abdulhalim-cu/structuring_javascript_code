@@ -6,6 +6,11 @@
 
 	<script type="text/javascript">
 		window.onload = function() {
+			// Extending revealing prototype
+			Calculator.prototype.add = function(x, y) {
+				this.eqCtl.innerHTML = x * y;
+			};
+
 			var calc = new Calculator('output');
 			calc.add(3, 4);
 			calc.subtract(35,32);
