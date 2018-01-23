@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prototype Demo</title>
+	
+	<script>
+
+		window.onload = function () {
+			var c = new Calculator('eq');
+			c.add(3,5);
+		}
+
+		var Calculator = function (eq) {
+			var eqCtl = document.getElementById(eq);
+		
+			return {	
+				add: function (x, y) {
+					var val = x + y;
+					eqCtl.innerHTML = val;
+				}
+			};
+		};
+
+	</script>
+
+</head>
+<body>
+
+	<div id="eq"></div>
+	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Revealing Module Pattern</title>
+	<script type="text/javascript">
+		
+		window.onload = function () {
+			calculator.add(2, 3);
+			calculator.subtract(5, 4);
+		};
+
+	</script>
+</head>
+<body>
+
+	<div id="output"></div>
+
+
+	<script type="text/javascript">
+		var calculator = function(eq) {
+			// Private members
+			var eqCtl = document.getElementById(eq),
+				add = function (x, y) {
+					eqCtl.innerHTML = x + y;
+				},
+				subtract = function(x, y) {
+					alert(x - y);
+				};
+
+			// Public members
+			return {
+				add: add,
+				subtract: subtract
+			};
+
+		}('output');
+	</script>
+	
+</body>
+</html>

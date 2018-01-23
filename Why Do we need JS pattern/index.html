@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Closures</title>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			var output = document.getElementById("output");
+			/*
+			var clsr = myClosure();
+			output.innerHTML = clsr() + "<br/>";
+			window.setTimeout(
+				function () {
+					output.innerHTML += clsr();
+				}, 5000);
+			*/
+			var closure = new myClosure2();
+			output.innerHTML = closure.myNestedFunc() + "<br>";
+
+			window.setTimeout(
+				function(){
+					output.innerHTML += closure.myNestedFunc();
+				}, 500);
+		};
+
+		function nonClosure() {
+			var date = new Date();
+			return date.getMilliseconds();
+		}
+
+		function myClosure(){
+			var date = new Date();
+			return function () {
+				return date.getMilliseconds();
+			};
+		}
+
+		var myClosure2 = function() {
+			var date = new Date(),
+				myNestedFunc  = function () {
+					return date.getMilliseconds();
+				};
+			return {
+				myNestedFunc: myNestedFunc
+			}
+		};
+
+	</script>
+
+</head>
+<body>
+
+	<div>
+		<h1>Simple demo of using a closure.</h1>
+
+		<p id="output"></p>
+	</div>
+	
+</body>
+</html>
